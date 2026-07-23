@@ -71,10 +71,16 @@ socket.on(
     dashboard.classList.remove("hidden");
 
 
-    initMap();
+initMap();
+
+setTimeout(()=>{
+
+    map.invalidateSize();
+
+},500);
+
 
 createQRCode();
-
 
 });
 
@@ -402,26 +408,39 @@ function createQRCode(){
     + "/join.html";
 
 
+    const qrBox =
+    document.getElementById("qrcode");
 
-    document.getElementById(
-        "joinLink"
-    ).innerHTML = link;
+
+    const linkBox =
+    document.getElementById("joinLink");
+
+
+    if(!qrBox)
+    return;
+
+
+
+    // alten QR löschen
+    qrBox.innerHTML = "";
+
+
+
+    linkBox.innerHTML = link;
 
 
 
     new QRCode(
 
-        document.getElementById(
-            "qrcode"
-        ),
+        qrBox,
 
         {
 
             text: link,
 
-            width:200,
+            width:120,
 
-            height:200
+            height:120
 
         }
 
@@ -429,5 +448,3 @@ function createQRCode(){
 
 
 }
-
-

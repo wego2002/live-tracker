@@ -239,8 +239,11 @@
 
     overflow-y:auto;
 
-}
+    display:flex;
 
+    flex-direction:column;
+
+}
 
 .sidebar h2{
 
@@ -590,17 +593,17 @@
 
     padding:20px;
 
+    max-height:45vh;
+
     overflow-y:auto;
-
-    max-height:
-
-    calc(100vh - 120px);
 
 }
 
 
+/* ==========================
+   QR Code Bereich
+========================== */
 
-/* QR Bereich */
 
 .qr-box{
 
@@ -608,35 +611,63 @@
 
     padding:15px;
 
-    background:rgba(255,255,255,.05);
+    background:
+
+    rgba(15,23,42,.9);
 
     border-radius:15px;
 
-}
-
-
-
-/* QR kleiner machen */
-
-#qrcode img{
-
-    width:140px !important;
-
-    height:140px !important;
+    text-align:center;
 
 }
 
 
+.qr-box h2{
 
-/* Link schöner */
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
 
 #joinLink{
 
-    font-size:12px;
+    font-size:11px;
 
-    opacity:.7;
+    color:#94a3b8;
 
-    overflow-wrap:anywhere;
+    word-break:break-all;
+
+    margin:10px;
+
+}
+
+
+#qrcode{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:15px;
+
+}
+
+
+#qrcode img{
+
+    width:120px !important;
+
+    height:120px !important;
+
+    background:white;
+
+    padding:8px;
+
+    border-radius:12px;
 
 }
 
@@ -665,5 +696,52 @@
 
 }
 
+
+}
+
+
+/* Sidebar Aufbau */
+
+.sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+/* Teilnehmer Bereich */
+
+.participant-section{
+
+    flex:1;
+
+    min-height:0;
+
+}
+
+
+
+/* Liste scrollbar */
+
+#participantList{
+
+    max-height:45vh;
+
+    overflow-y:auto;
+
+}
+
+
+
+/* QR bleibt unten */
+
+.qr-box{
+
+    flex-shrink:0;
 
 }
