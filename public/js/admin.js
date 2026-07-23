@@ -73,6 +73,8 @@ socket.on(
 
     initMap();
 
+createQRCode();
+
 
 });
 
@@ -187,17 +189,59 @@ function addParticipant(user){
     "participant";
 
 
+
     div.innerHTML = `
 
-        <strong>
-        ${user.name}
-        </strong>
+        <div class="participant-header">
 
-        <br>
+            <div class="avatar">
+                👤
+            </div>
 
-        <small>
-        ${user.online ? "🟢 Online":"🔴 Offline"}
-        </small>
+
+            <div class="participant-name">
+
+                <strong>
+                ${user.name}
+                </strong>
+
+                <span>
+                ${user.online 
+                ? "🟢 Online" 
+                : "🔴 Offline"}
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="participant-info">
+
+
+            <div>
+                📍 Standort:
+                <b>
+                ${user.lat 
+                ? "Aktiv" 
+                : "Warte..."}
+                </b>
+            </div>
+
+
+
+            <div>
+                🕒 Update:
+                <b>
+                ${user.updated 
+                ? formatTime(user.updated)
+                : "-"}
+                </b>
+            </div>
+
+
+        </div>
 
     `;
 
@@ -209,15 +253,13 @@ function addParticipant(user){
         if(user.lat && user.lng)
         {
 
-
             map.setView(
-                [
-                user.lat,
-                user.lng
-                ],
-                15
+            [
+            user.lat,
+            user.lng
+            ],
+            15
             );
-
 
         }
 
@@ -228,8 +270,9 @@ function addParticipant(user){
 
     participantList.appendChild(div);
 
-
 }
+
+
 
 
 
@@ -283,17 +326,108 @@ function updateMarker(user){
     {
 
 
-        markers[user.id] =
-        L.marker(position)
-        .addTo(map)
-        .bindPopup(
-            `
-            <b>${user.name}</b>
-            `
-        );
+const personIcon = L.divIcon({
+
+    className: "person-marker",
+
+    html: `
+        <div class="marker-container">
+
+            <div class="marker-name">
+                ${user.name}
+            </div>
+
+            <div class="marker-icon">
+                📍
+            </div>
+
+        </div>
+    `,
+
+    iconSize:[80,80],
+
+    iconAnchor:[40,80]
+
+});
+
+
+
+markers[user.id] =
+L.marker(
+    position,
+    {
+        icon:personIcon
+    }
+)
+.addTo(map)
+.bindPopup(
+    `
+    <div class="popup">
+
+        <h3>
+        👤 ${user.name}
+        </h3>
+
+        <p>
+        🟢 Standort aktiv
+        </p>
+
+        <p>
+        📍
+        ${user.lat.toFixed(5)},
+        ${user.lng.toFixed(5)}
+        </p>
+
+    </div>
+    `
+);
 
 
     }
 
 
 }
+
+
+// =====================================
+// QR Code Teilnehmer-Link
+// =====================================
+
+
+function createQRCode(){
+
+
+    const link =
+    window.location.origin 
+    + "/join.html";
+
+
+
+    document.getElementById(
+        "joinLink"
+    ).innerHTML = link;
+
+
+
+    new QRCode(
+
+        document.getElementById(
+            "qrcode"
+        ),
+
+        {
+
+            text: link,
+
+            width:200,
+
+            height:200
+
+        }
+
+    );
+
+
+}
+
+

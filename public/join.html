@@ -3,84 +3,113 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LiveTracker - Standort teilen</title>
+<title>LiveTracker</title>
 
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/join.css">
 
 </head>
 
+
 <body>
 
-<div class="background"></div>
 
 <div class="join-container">
+
 
     <div class="join-card">
 
 
-        <div class="location-icon">
+        <div class="logo">
+
             📍
+
         </div>
 
 
         <h1>
-            Standort teilen
+            LiveTracker
         </h1>
 
 
-        <p class="description">
+        <p class="subtitle">
 
-            Erlaube deinen Standort,
-            damit der Admin dich live auf
-            der Karte sehen kann.
+            Teile deinen Standort live
 
         </p>
 
 
 
-        <div class="input-group">
+
+        <div class="input-box">
+
 
             <label>
                 Dein Name
             </label>
 
-            <input 
-                id="name"
-                type="text"
-                placeholder="z.B. Max"
-                autocomplete="off"
+
+            <input
+            id="name"
+            placeholder="Name eingeben"
             >
 
+
         </div>
+
+
 
 
 
         <button id="startButton">
 
-            📡 Standort freigeben
+            📡 Standort teilen
 
         </button>
 
 
 
+
+
         <div id="status" class="status">
 
-            ⚪ Nicht verbunden
+            ⚪ Bereit
 
         </div>
 
 
 
-        <div class="info">
 
-            🔒 Deine Zustimmung ist erforderlich.<br>
-            Du kannst die Freigabe jederzeit beenden.
+
+        <div class="info-box">
+
+
+            <div>
+
+                📍 GPS:
+                <span id="gpsStatus">
+                Wartet
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                🎯 Genauigkeit:
+                <span id="accuracy">
+                -
+                </span>
+
+            </div>
+
 
         </div>
+
 
 
     </div>
@@ -90,8 +119,11 @@
 
 
 
+
 <script src="/socket.io/socket.io.js"></script>
+
 <script src="js/common.js"></script>
+
 <script src="js/join.js"></script>
 
 

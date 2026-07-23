@@ -73,6 +73,7 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 
     <div id="dashboard" class="dashboard hidden">
 
+	
 
         <header class="topbar">
 
@@ -117,10 +118,32 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
                 Noch keine Teilnehmer
 
 
-            </div>
+           
+	<div class="qr-box">
+
+
+		<h2>
+		📱 Teilnehmer einladen
+		</h2>
+
+
+		<p>
+		Scanne den QR-Code oder öffne den Link:
+		</p>
+
+
+		<div id="joinLink"></div>
+
+
+		<div id="qrcode"></div>
+
+
+		</div>
 
 
         </aside>
+
+
 
 
 
@@ -149,8 +172,11 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<script src="js/admin.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
+<script src="js/common.js"></script>
+
+<script src="js/admin.js"></script>
 
 </body>
 

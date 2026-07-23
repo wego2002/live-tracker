@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
+const path = require("path");
 
 const app = express();
 const server = http.createServer(app);
@@ -20,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 // --------------------
 
 const ADMIN_PASSWORD =
-process.env.ADMIN_PASSWORD || "1234";
+process.env.ADMIN_PASSWORD || "12345";
 
 // --------------------
 // Teilnehmer speichern
