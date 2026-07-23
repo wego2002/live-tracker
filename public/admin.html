@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LiveTracker - Admin</title>
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/admin.css">
+
+<link 
+rel="stylesheet" 
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- Login Bereich -->
+
+    <div id="loginBox" class="login-card">
+
+
+        <div class="admin-icon">
+            👑
+        </div>
+
+
+        <h1>
+            Admin Login
+        </h1>
+
+
+        <p>
+            Melde dich an, um Live-Standorte zu sehen.
+        </p>
+
+
+        <input 
+        id="password"
+        type="password"
+        placeholder="Passwort"
+        >
+
+
+        <button id="loginButton">
+
+            Einloggen
+
+        </button>
+
+
+        <div id="loginStatus">
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <!-- Dashboard -->
+
+    <div id="dashboard" class="dashboard hidden">
+
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>
+                    📍 LiveTracker
+                </h1>
+
+                <span>
+                    Admin Dashboard
+                </span>
+
+            </div>
+
+
+            <div class="online">
+
+                🟢 Online
+
+            </div>
+
+
+        </header>
+
+
+
+
+
+        <aside class="sidebar">
+
+
+            <h2>
+                Teilnehmer
+            </h2>
+
+
+            <div id="participantList">
+
+
+                Noch keine Teilnehmer
+
+
+            </div>
+
+
+        </aside>
+
+
+
+
+
+        <main class="map-area">
+
+
+            <div id="map">
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="js/admin.js"></script>
+
+
+</body>
+
+</html>
